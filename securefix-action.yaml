@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/csm-actions/securefix-action/main/json-schema/config.json
+entries:
+  - client:
+      repositories:
+        - csm-actions/test-client
+      branches:
+        - main
+    push:
+      repositories:
+        - csm-actions/test-client
+      branches:
+        - "test-*" # Glob
+    # Allow to create pull requests
+    pull_request:
+      base_branches:
+        - main
