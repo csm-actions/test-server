@@ -14,11 +14,18 @@ jobs:
     permissions:
       issues: write
     steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            securefix-action.yaml
+          sparse-checkout-cone-mode: false
       - uses: csm-actions/securefix-action/server/prepare@pr/209
         id: prepare
         with:
           app_id: ${{ vars.TEST_SERVER_APP_ID }}
           app_private_key: ${{ secrets.DEMO_SERVER_PRIVATE_KEY }}
+          config_file: securefix-action.yaml
       - uses: csm-actions/securefix-action/server/commit@pr/209
         with:
           outputs: ${{ toJson(steps.prepare.outputs) }}
