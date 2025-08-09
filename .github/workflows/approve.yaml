@@ -14,7 +14,7 @@ jobs:
     environment: main
     permissions: {}
     steps:
-      - uses: csm-actions/approve-pr-action/server@7378e3445407a0f8d8029d5b055faeccd03cd710 # v0.1.1
+      - uses: csm-actions/approve-pr-action/server@pr/209
         with:
           github_token: ${{ secrets.PR_APPROVE_GITHUB_ACCESS_TOKEN }}
           app_id: ${{ vars.TEST_SERVER_APP_ID }}
