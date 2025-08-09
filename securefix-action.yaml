@@ -5,6 +5,7 @@ entries:
         - csm-actions/test-client
       branches:
         - main
+        - test-209
     push:
       repositories:
         - csm-actions/test-client
