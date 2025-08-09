@@ -1,0 +1,21 @@
+---
+name: Approve Pull Request
+run-name: Approve Pull Request (${{ github.event.label.name }})
+on:
+  label:
+    types:
+      - created
+jobs:
+  approve:
+    if: startsWith(github.event.label.name, 'approve-pr-')
+    name: Approve Pull Request (${{ github.event.label.description }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment: main
+    permissions: {}
+    steps:
+      - uses: csm-actions/approve-pr-action/server@7378e3445407a0f8d8029d5b055faeccd03cd710 # v0.1.1
+        with:
+          github_token: ${{ secrets.PR_APPROVE_GITHUB_ACCESS_TOKEN }}
+          app_id: ${{ vars.DEMO_SERVER_APP_ID }}
+          app_private_key: ${{ secrets.DEMO_SERVER_PRIVATE_KEY }}
