@@ -12,6 +12,7 @@ entries:
         - csm-actions/test-client
       branches:
         - "test-*" # Glob
+        - gh-pages
     # Allow to create pull requests
     pull_request:
       base_branches:
