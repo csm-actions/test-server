@@ -6,6 +6,7 @@ entries:
       branches:
         - main
         - test-209
+        - feat-root-dir
     push:
       repositories:
         - csm-actions/test-client
