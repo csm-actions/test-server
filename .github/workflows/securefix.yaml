@@ -13,15 +13,15 @@ jobs:
     environment: main
     permissions: {}
     steps:
-      - uses: csm-actions/securefix-action/server/prepare@758a17e6f52a70ab0d8102ef1cd13cd0107206e6 # v0.2.0
+      - uses: csm-actions/securefix-action/server/prepare@pr/209
         id: prepare
         with:
           app_id: ${{ vars.TEST_SERVER_APP_ID }}
           app_private_key: ${{ secrets.DEMO_SERVER_PRIVATE_KEY }}
-      - uses: csm-actions/securefix-action/server/commit@758a17e6f52a70ab0d8102ef1cd13cd0107206e6 # v0.2.0
+      - uses: csm-actions/securefix-action/server/commit@pr/209
         with:
           outputs: ${{ toJson(steps.prepare.outputs) }}
-      - uses: csm-actions/securefix-action/server/notify@758a17e6f52a70ab0d8102ef1cd13cd0107206e6 # v0.2.0
+      - uses: csm-actions/securefix-action/server/notify@pr/209
         if: failure()
         with:
           outputs: ${{ toJson(steps.prepare.outputs) }}
