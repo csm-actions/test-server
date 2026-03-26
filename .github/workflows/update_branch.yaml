@@ -14,7 +14,7 @@ jobs:
     environment: main
     permissions: {}
     steps:
-      - uses: csm-actions/update-branch-action/server@pr/209
+      - uses: csm-actions/update-branch-action/server@99a654f7267a866034246e6e056a012d267814e0 # pr/209
         with:
           app_id: ${{ vars.TEST_SERVER_APP_ID }}
           app_private_key: ${{ secrets.DEMO_SERVER_PRIVATE_KEY }}
